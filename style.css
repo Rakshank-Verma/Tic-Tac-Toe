@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    width: 300px;
+    height: 300px;
+    /* border: 2px solid black; */
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.matrix{
+    width: 93px;
+    height: 93px;
+    /* border: 2px solid brown; */
+    margin: auto;
+    font-size: 76px;
+    text-align: center;
+    color: blue;
+    cursor: pointer;
+    /* box-shadow: 5px 5px gray; */
+}
+#cell-1{
+    border-right: 2px solid brown;
+    border-bottom: 2px solid brown;
+}
+#cell-2{
+    border-right: 2px solid brown;
+    border-left: 2px solid brown;
+    border-bottom: 2px solid brown;
+}
+#cell-3{
+    border-left: 2px solid brown;
+    border-bottom: 2px solid brown;
+}
+#cell-4{
+    border-right: 2px solid brown;
+    border-bottom: 2px solid brown;
+    border-top: 2px solid brown;
+}
+#cell-5{
+    border: 2px solid brown;
+}
+#cell-6{
+    border-left: 2px solid brown;
+    border-bottom: 2px solid brown;
+    border-top: 2px solid brown;
+}
+#cell-7{
+    border-right: 2px solid brown;
+    border-top: 2px solid brown;
+}
+#cell-8{
+    border-right: 2px solid brown;
+    border-left: 2px solid brown;
+    border-top: 2px solid brown;
+}
+#cell-9{
+    border-left: 2px solid brown;
+    border-top: 2px solid brown;
+}
+.players{
+    margin: 20px;
+}
+button{
+    width: 100px;
+    font-size: 20px;
+}
