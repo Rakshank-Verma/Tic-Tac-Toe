@@ -13,21 +13,22 @@ function reload(){
 }
 
 // Function to show input of users in the cells
-function clickMe(clicked_id){
-    let btn=document.getElementById(clicked_id);
+function clickMe(event){
+    let x = event.target.id;
+    let btn=document.getElementById(x);
     if(count%2 != 0){
         btn.innerText="X";
         count++;
         // Array value is 1 for X 
-        if(clicked_id=="cell-1"){arr[0][0]=1;}
-        else if(clicked_id=="cell-2"){arr[0][1]=1;}
-        else if(clicked_id=="cell-3"){arr[0][2]=1;}
-        else if(clicked_id=="cell-4"){arr[1][0]=1;}
-        else if(clicked_id=="cell-5"){arr[1][1]=1;}
-        else if(clicked_id=="cell-6"){arr[1][2]=1;}
-        else if(clicked_id=="cell-7"){arr[2][0]=1;}
-        else if(clicked_id=="cell-8"){arr[2][1]=1;}
-        else if(clicked_id=="cell-9"){arr[2][2]=1;}
+        if(x=="cell-1"){arr[0][0]=1;}
+        else if(x=="cell-2"){arr[0][1]=1;}
+        else if(x=="cell-3"){arr[0][2]=1;}
+        else if(x=="cell-4"){arr[1][0]=1;}
+        else if(x=="cell-5"){arr[1][1]=1;}
+        else if(x=="cell-6"){arr[1][2]=1;}
+        else if(x=="cell-7"){arr[2][0]=1;}
+        else if(x=="cell-8"){arr[2][1]=1;}
+        else if(x=="cell-9"){arr[2][2]=1;}
         result();
     }
 
@@ -35,36 +36,67 @@ function clickMe(clicked_id){
         btn.innerText="O";
         count++
         // Array value is 0 for O 
-        if(clicked_id=="cell-1"){arr[0][0]=0;}
-        else if(clicked_id=="cell-2"){arr[0][1]=0;}
-        else if(clicked_id=="cell-3"){arr[0][2]=0;}
-        else if(clicked_id=="cell-4"){arr[1][0]=0;}
-        else if(clicked_id=="cell-5"){arr[1][1]=0;}
-        else if(clicked_id=="cell-6"){arr[1][2]=0;}
-        else if(clicked_id=="cell-7"){arr[2][0]=0;}
-        else if(clicked_id=="cell-8"){arr[2][1]=0;}
-        else if(clicked_id=="cell-9"){arr[2][2]=0;}
+        if(x=="cell-1"){arr[0][0]=0;}
+        else if(x=="cell-2"){arr[0][1]=0;}
+        else if(x=="cell-3"){arr[0][2]=0;}
+        else if(x=="cell-4"){arr[1][0]=0;}
+        else if(x=="cell-5"){arr[1][1]=0;}
+        else if(x=="cell-6"){arr[1][2]=0;}
+        else if(x=="cell-7"){arr[2][0]=0;}
+        else if(x=="cell-8"){arr[2][1]=0;}
+        else if(x=="cell-9"){arr[2][2]=0;}
         result();
     }
-    console.log(arr);
+    // console.log(arr);
 }
 function result(){
-    if(arr[0][0] == 1 && arr[0][1] == 1 && arr[0][2] == 1){document.getElementById("p1").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[1][0] == 1 && arr[1][1] == 1 && arr[1][2] == 1){document.getElementById("p1").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[2][0] == 1 && arr[2][1] == 1 && arr[2][2] == 1){document.getElementById("p1").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][0] == 1 && arr[1][0] == 1 && arr[2][0] == 1){document.getElementById("p1").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][1] == 1 && arr[1][1] == 1 && arr[2][1] == 1){document.getElementById("p1").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][2] == 1 && arr[1][2] == 1 && arr[2][2] == 1){document.getElementById("p1").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][0] == 1 && arr[1][1] == 1 && arr[2][2] == 1){document.getElementById("p1").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][2] == 1 && arr[1][1] == 1 && arr[2][0] == 1){document.getElementById("p1").innerHTML+="<span> Winner &#127942 </span>";}  
+    let x = document.getElementById("p1");
+    for(let i=0; i<3; i++)
+    {
+        if(arr[i][0]==1 && arr[i][1]==1 && arr[i][2]==1)
+        {
+            x.innerHTML+="<span> Winner &#127942 </span>";
+        }
+        
+        else if(arr[0][i]==1 && arr[1][i]==1 && arr[2][i]==1)
+        {
+            x.innerHTML+="<span> Winner &#127942 </span>";
+        }
 
-    if(arr[0][0] == 0 && arr[0][1] == 0 && arr[0][2] == 0){document.getElementById("p2").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[1][0] == 0 && arr[1][1] == 0 && arr[1][2] == 0){document.getElementById("p2").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[2][0] == 0 && arr[2][1] == 0 && arr[2][2] == 0){document.getElementById("p2").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][0] == 0 && arr[1][0] == 0 && arr[2][0] == 0){document.getElementById("p2").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][1] == 0 && arr[1][1] == 0 && arr[2][1] == 0){document.getElementById("p2").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][2] == 0 && arr[1][2] == 0 && arr[2][2] == 0){document.getElementById("p2").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][0] == 0 && arr[1][1] == 0 && arr[2][2] == 0){document.getElementById("p2").innerHTML+="<span> Winner &#127942 </span>";}
-    else if(arr[0][2] == 0 && arr[1][1] == 0 && arr[2][0] == 0){document.getElementById("p2").innerHTML+="<span> Winner &#127942 </span>";}    
+        else if(arr[0][0] == 1 && arr[1][1] == 1 && arr[2][2] == 1)
+        {
+            x.innerHTML+="<span> Winner &#127942 </span>";
+        }
+
+        else if(arr[0][2] == 1 && arr[1][1] == 1 && arr[2][0] == 1)
+        {
+            x.innerHTML+="<span> Winner &#127942 </span>";
+        }  
+    }
+    
+    let y = document.getElementById("p2");
+    for(let i=0; i<3; i++)
+    {
+        if(arr[i][0]==0 && arr[i][1]==0 && arr[i][2]==0)
+        {
+            y.innerHTML+="<span> Winner &#127942 </span>";
+        }
+
+        else if(arr[0][i]==0 && arr[1][i]==0 && arr[2][i]==0)
+        {
+            y.innerHTML+="<span> Winner &#127942 </span>";
+        }
+
+        else if(arr[0][0] == 0 && arr[1][1] == 0 && arr[2][2] == 0)
+        {
+            y.innerHTML+="<span> Winner &#127942 </span>";
+        }
+
+        else if(arr[0][2] == 0 && arr[1][1] == 0 && arr[2][0] == 0)
+        {
+            y.innerHTML+="<span> Winner &#127942 </span>";
+        }  
+    }
+    
 }
     
